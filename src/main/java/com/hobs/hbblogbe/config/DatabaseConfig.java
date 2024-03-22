@@ -9,28 +9,24 @@ import javax.sql.DataSource;
 @Configuration
 public class DatabaseConfig {
 
-    @Value("${DATABASE_URL}")
-    private String databaseUrl;
+    @Value("${spring.datasource.url}")
+    private String dbUrl;
 
-    @Value("${DATABASE_USERNAME}")
-    private String databaseUsername;
+    @Value("${spring.datasource.username}")
+    private String dbUsername;
 
-    @Value("${DATABASE_PASSWORD}")
-    private String databasePassword;
+    @Value("${spring.datasource.password}")
+    private String dbPassword;
 
     @Bean
     public DataSource dataSource() {
-        // Veritabanı bağlantı bilgilerini kullanarak veri kaynağını oluşturun
-        // databaseUrl, databaseUsername ve databasePassword kullanılabilir
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl(databaseUrl);
-        dataSource.setUsername(databaseUsername);
-        dataSource.setPassword(databasePassword);
+        dataSource.setUrl(dbUrl);
+        dataSource.setUsername(dbUsername);
+        dataSource.setPassword(dbPassword);
         return dataSource;
     }
-
-    // Diğer yapılandırma ve bean tanımları...
 }
 
 
