@@ -9,13 +9,13 @@ import javax.sql.DataSource;
 @Configuration
 public class DatabaseConfig {
 
-    @Value("postgres://u7p341iv1m836a:pebfdcfce564d5614e21ec2226a50a04b5e106249bdf5c9a39da7989b47deadb5@ceu9lmqblp8t3q.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dcku6o9r69j88a")
+    @Value("${DATABASE_URL}")
     private String databaseUrl;
 
-    @Value("u7p341iv1m836a")
+    @Value("${DATABASE_USERNAME}")
     private String databaseUsername;
 
-    @Value("pebfdcfce564d5614e21ec2226a50a04b5e106249bdf5c9a39da7989b47deadb5")
+    @Value("${DATABASE_PASSWORD}")
     private String databasePassword;
 
     @Bean
